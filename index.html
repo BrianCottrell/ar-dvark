@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ARdvark</title>
+    <style>
+      body {
+      	background-image: url("background.jpg");
+      }
+      button {
+        width: 90%;
+        height: 50px;
+        margin-left: 5%;
+        margin-bottom: 3%;
+        font-size: 26px;
+        border-radius: 25px;
+        color: grey;
+      }
+      img {
+        width: 90%;
+        margin-left: 5%;
+      }
+      p {
+        width: 90%;
+        margin-left: 5%;
+        font-family: sans-serif;
+        font-size: 26px;
+        color: lightgrey;
+        text-align: center;
+      }
+      .preview {
+        width: 90%;
+        margin-left: 5%;
+        -webkit-filter: grayscale(90%);
+        filter: grayscale(90%);
+        border-radius: 2px;
+      }
+      .preview:hover {
+        -webkit-filter: blur(0px) grayscale(0%);
+        filter: blur(0px) grayscale(0%);
+      }
+
+	  #loader {
+	    border: 16px solid #f3f3f3; /* Light grey */
+	    border-top: 16px solid #3498db; /* Blue */
+	    border-radius: 50%;
+	    width: 120px;
+	    height: 120px;
+	    margin: auto;
+	    margin-top: 20%;
+	    display: none;
+	    animation: spin 0.2s linear infinite;
+	  }
+  	  @keyframes spin {
+	    0% { transform: rotate(0deg); }
+	    100% { transform: rotate(360deg); }
+	  }
+    </style>
+  </head>
+  <body>
+    <div id="page">
+      <img src="./app_logo.png"/>
+      <video id="videoPlayer" class="preview" onclick="this.paused ? this.play() : this.pause();">
+        <source src="./VID_20180616_115655.mp4" type="video/mp4">
+      </video>
+      <p><b>Ed Arenberg</b> needs assistance with <b>Puzzles</b></p>
+      <button onclick="startLoader()">Accept</button>
+      <button onclick="startLoader()">Skip</button>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+    </div>
+    <div id="loader"></div>
+  </body>
+  <script type="text/javascript">
+  	var startLoader = function() {
+  		document.getElementById("page").style.display = "none";
+  		document.getElementById("loader").style.display = "block";
+  	}
+  </script>
+</html>
